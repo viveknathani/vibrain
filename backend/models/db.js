@@ -45,7 +45,8 @@ function createGraph(graphName)
     {
         if(err) throw err.message;
         let db = client.db(DB_NAME);
-        db.collection(GRAPHS_LIST).insertOne(graphName, function(err, res)
+        let dbObject = {name: graphName};
+        db.collection(GRAPHS_LIST).insertOne(dbObject, function(err, res)
         {
             if(err) throw err.message;
             console.log('Updated vibraindb');
@@ -54,8 +55,36 @@ function createGraph(graphName)
     });
 }
 
+function deleteGraph(graphName)
+{
+    mongoClient.connect(url, function(err, client)
+    {
+        if(err) throw err.message;
+        let db = client.db(DB_NAME);
+        let dbObject = {name: graphName};
+        db.collection(GRAPHS_LIST).deleteOne(dbObject, function(err, res)
+        {
+            if(err) throw err.message;
+            console.log('Delete operation performed.');
+            client.close();
+        });
+    });
+
+    mongoClient.connect(url, function(err, client)
+    {
+        if(err) throw err.message;
+        let db = client.db(graphName);
+        db.dropDatabase(function(err, res)
+        {
+            if(err) throw err;
+            console.log('Database dropped.');
+        });
+    });
+}
+
 module.exports = {
     createGraph: createGraph,
+    deleteGraph: deleteGraph,
     insertNode: nodeHandler.insertNode,
     getAllNodes: nodeHandler.getAllNodes,
     updateNode: nodeHandler.updateNode,
