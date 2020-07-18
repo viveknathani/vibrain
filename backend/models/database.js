@@ -4,7 +4,6 @@
 
 const mongoose = require('mongoose');
 const mongoServerPath = 'mongodb://localhost:27017/vibraindb';
-const graphModel = require('./graph');
 
 function establishConnection()
 {
