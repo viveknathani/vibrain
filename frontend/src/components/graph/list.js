@@ -1,31 +1,6 @@
 import React from 'react';
 import './list.css';
 
-/* 
-    Display is an internal component used by the GraphList component.
-    It is used to display the list of names of graphs.
-*/
-class Display extends React.Component
-{
-    show(graphName) 
-    {
-        return (
-            <li key={graphName.key}>{graphName.name}</li>
-        );
-    }
-
-    render()
-    {
-        let graphs = this.props.entries;
-        let listOfGraphs = graphs.map(this.show);
-        return(
-            <ul>
-                {listOfGraphs}
-            </ul>
-        );
-    }
-};
-
 class GraphList extends React.Component
 {
     constructor(props)
@@ -77,10 +52,13 @@ class GraphList extends React.Component
 
     render()
     {
+        let listOfGraphs = this.state.graphsList.map((data) => (
+            <li key={data.key}>{data.name}<button className="delete_button"><i className="fa fa-trash-o"></i></button></li>
+        ));
         return(
             <div id="box">
                 <h3 id="graph_list_title">your graphs</h3>
-                <Display entries={this.state.graphsList}/>
+                <ul>{listOfGraphs}</ul>
                 <form onSubmit={this.addToList} id="graph_form">
                     <input ref={(i) => this._inputElement = i} placeholder="graph name" id="graph_input"></input>
                     <button type="submit" id="add">+</button>
