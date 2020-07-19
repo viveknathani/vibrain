@@ -9,8 +9,8 @@ class Header extends React.Component
             <div id="top">
                 <div id="content"> 
                     <ul>
-                        <li id="head">vibrain</li>
-                        <li id="about">about</li>
+                        <li id="head" className="LI">vibrain</li>
+                        <li id="about" className="LI">about</li>
                     </ul>
                 </div>
                 <hr id="line"/>
