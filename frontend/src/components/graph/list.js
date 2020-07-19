@@ -1,22 +1,26 @@
 import React from 'react';
 import './list.css';
 
+/* 
+    Display is an internal component used by the GraphList component.
+    It is used to display the list of names of graphs.
+*/
 class Display extends React.Component
 {
-    show(item) 
+    show(graphName) 
     {
         return (
-            <li key={item.key}>{item.name}<button class="delete_button"><i class="fa fa-trash"></i></button>
-        </li>);
+            <li key={graphName.key}>{graphName.name}</li>
+        );
     }
 
     render()
     {
-        let entry = this.props.entries;
-        let theList = entry.map(this.show);
+        let graphs = this.props.entries;
+        let listOfGraphs = graphs.map(this.show);
         return(
             <ul>
-                {theList}
+                {listOfGraphs}
             </ul>
         );
     }
@@ -27,32 +31,48 @@ class GraphList extends React.Component
     constructor(props)
     {
         super(props);
-
-        this.state = {
-            graphsList: []
-        }
-
+        this.state = { graphsList: [] }
         this.addToList = this.addToList.bind(this);
-        this.removeFromList = this.removeFromList.bind(this);
+    }
+
+    // This function makes an API call and gets all the graph names.
+    fetchData()
+    {
+        fetch('http://localhost:4000/api/graphs')
+                .then(res => res.json())
+                .then(data => {
+                    let arr = [];
+                    for(let i = 0; i < data.length; i++)
+                    {
+                        let newObject = { key: data[i]._id, name: data[i].name };
+                        arr.push(newObject);
+                    }
+
+                    this.setState({graphsList: arr});
+                });
+    }
+
+    doesThisExist(arr, str)
+    {
+        for(let i = 0; i < arr.length; i++)
+            if(arr[i].name === str) return true;
+        return false;
     }
 
     addToList(e)
     {
-        if(this._inputElement.value !== '')
+        if(this._inputElement.value !== '' && !this.doesThisExist(this.state.graphsList, this._inputElement.value))
         {
-            let str = {name: this._inputElement.value, key: Date.now()};
-            this.setState(
-                { graphsList: [...this.state.graphsList, str] },
-                () => console.log(this.state.graphsList)
-            );
+            let str = String(this._inputElement.value);
+            fetch('http://localhost:4000/api/graphs/'+str, {method: 'post'}).then(this.fetchData());
         }
         e.preventDefault();
         this._inputElement.value = '';
     }
 
-    removeFromList()
+    componentDidMount()
     {
-
+        this.fetchData();
     }
 
     render()
