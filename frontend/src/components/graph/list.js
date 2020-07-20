@@ -2,9 +2,9 @@ import React from 'react';
 
 class List extends React.Component
 {
-    remove(key)
+    remove(name)
     {
-        this.props.remove(key);
+        this.props.remove(name);
     }
 
     show(name)
@@ -20,7 +20,7 @@ class List extends React.Component
                     this.props.list.map(data => 
                     {
                         return(
-                            <li key={data.key}>{data.name}<button onClick={()=>{this.remove(data.key)}}>Delete</button><button onClick={()=>{this.show(data.name)}}>Show</button></li>
+                            <li key={data.key}>{data.name}<button onClick={()=>{this.remove(data.name)}}>Delete</button><button onClick={()=>{this.show(data.name)}}>Show</button></li>
                         )
                     })
                 }
