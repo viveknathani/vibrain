@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/header/header';
-import GraphList from './components/graph/list';
+import GraphsList from './components/graph/graph';
 
 class App extends React.Component
 {
@@ -9,7 +9,7 @@ class App extends React.Component
     return(
       <div>
         <Header/>
-        <GraphList/>
+        <GraphsList/>
       </div>
     )
   }
