@@ -10,12 +10,17 @@ class RegularList extends React.Component
     render()
     {
         return(
-            <ul>
+            <ul className="panel_list_node">
                 {
                     this.props.list.map(data => 
                     {
                         return(
-                            <li key={data._id}>{data.thought}<button onClick={()=>{this.remove(data)}}>Delete</button></li>
+                            <li key={data._id}>
+                                {data.thought}
+                                <button onClick={()=>{this.remove(data)}}>
+                                <i class="fa fa-trash-o"></i>
+                                </button>
+                            </li>
                         )
                     })
                 }
@@ -101,19 +106,28 @@ class Node extends React.Component
         if(this.props.graph === '')
         {
             return(
-                <h3>Select a graph to see the nodes.</h3>
+                <div id="box_node_name">
+                    <h3 className="box_title">nodes</h3>
+                </div>
             );
         }
         else 
         {
             return(
-                <div>
-                    <h3>Nodes of {this.props.graph}</h3>
-                    <form id="form_node_name" onSubmit={this.addNode}>
-                        <input placeholder="thought" id="input_thought" ref={(i) => this._inputElement = i}></input>
-                        <button type="submit">Add</button>
-                    </form>
+                <div id="box_node_name">
+
+                    <h3 className="box_title">nodes of {this.props.graph}</h3>
+
                         <RegularList list={this.state.nodesList} remove={this.remove}/>
+
+                        <form id="form_node_name" onSubmit={this.addNode}>
+
+                        <input placeholder="thought" id="input_thought" ref={(i) => this._inputElement = i}></input>
+
+                        <button type="submit" className="add">+</button>
+
+                    </form>
+
                 </div>
             );
         }

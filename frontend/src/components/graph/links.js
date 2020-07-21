@@ -9,13 +9,19 @@ class RegularList extends React.Component
 
     render()
     {
+        let c = 1;
         return(
-            <ul>
+            <ul className="panel_list_link">
                 {
                     this.props.list.map(data => 
                     {
                         return(
-                            <li key={data.sourceId+data.targetId}>{data.sourceId+"/"+data.targetId}<button onClick={()=>{this.remove(data)}}>Delete</button></li>
+                            <li key={data.sourceId+data.targetId}><span id="span_one">{data.sourceId+"/"+data.targetId}</span>
+                            <span id="span_two">link {c++}</span>
+                                <button onClick={()=>{this.remove(data)}}>
+                                <i class="fa fa-trash-o"></i>
+                                </button>
+                            </li>
                         )
                     })
                 }
@@ -103,20 +109,22 @@ class Links extends React.Component
         if(this.props.graph === '')
         {
             return(
-                <h3>Select a graph to see the links.</h3>
+                <div id="box_link">
+                <h3>links</h3>
+                </div>
             );
         }
         else 
         {
             return(
-                <div>
-                    <h3>Links of {this.props.graph}</h3>
+                <div id="box_link">
+                    <h3 className="box_title">links of {this.props.graph}</h3>
+                    <RegularList list={this.state.linksList} remove={this.remove}/>
                     <form id="form_link" onSubmit={this.addLink}>
                         <input placeholder="source" id="input_link_source" ref={(i) => this.one = i}></input>
                         <input placeholder="target" id="input_link_target" ref={(j) => this.two = j}></input>
-                        <button type="submit">Add</button>
+                        <button type="submit" className="add">+</button>
                     </form>
-                    <RegularList list={this.state.linksList} remove={this.remove}/>
                 </div>
             );
         }

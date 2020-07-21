@@ -1,0 +1,143 @@
+#parent
+{
+    width: 310px;
+}
+
+#box_graph_name 
+{
+    margin-top: 0%;
+    border-radius: 1%;
+    background-color: #1c1c1c;
+    color: #11f6ee;
+    padding: 5px;
+}
+
+#box_node_name 
+{
+    margin-top: 2%;
+    border-radius: 1%;
+    background-color: #1c1c1c;
+    color: #11f6ee;
+    padding: 5px;
+}
+
+#box_link 
+{
+    margin-top: 2%;
+    border-radius: 1%;
+    background-color: #1c1c1c;
+    color: #11f6ee;
+    padding: 5px;
+}
+
+.box_title 
+{
+    font-size: large;
+    font-weight: bold;
+}
+
+#box_graph_name li, #box_node_name li, #box_link li
+{
+    list-style: none;
+    font-size: 16px;
+}
+
+#input_graph_name, #input_thought
+{
+    text-align: center;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+}
+
+#input_link_source, #input_link_target
+{
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    outline: none;
+    width: 45%;
+}
+
+.panel_list_graph
+{
+    height: 100px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.panel_list_node
+{
+    height: 50px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.panel_list_link
+{
+    height: 70px;
+    font-size: x-small;
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: scroll;
+}
+
+.panel_list_graph button,  .panel_list_node button, .panel_list_link button
+{
+    background: none;
+    color:white;
+    border: none;
+    cursor: pointer;
+}
+
+.add 
+{
+    color: #11f6ee;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    font-size: 30px;
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#span_one
+{
+    display: none;
+}
+
+.panel_list_link:hover #span_two
+{
+    display: none;
+}
+
+.panel_list_link:hover #span_one 
+{
+ display:block;
+}
+
+::-webkit-scrollbar 
+{
+    width: 5px;
+}
+  
+::-webkit-scrollbar-track 
+{
+    background: none;
+}
+   
+::-webkit-scrollbar-thumb 
+{
+    background: #11f6ee;
+}
+  
+::-webkit-scrollbar-thumb:hover 
+{
+   background: #2bbeb9;
+}

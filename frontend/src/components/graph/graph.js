@@ -2,6 +2,7 @@ import React from 'react';
 import List from './list';
 import Node from './nodes';
 import Links from './links';
+import './style.css';
 
 class GraphsList extends React.Component
 {
@@ -76,15 +77,28 @@ class GraphsList extends React.Component
     render()
     {
         return(
-            <div id="box_graph_name">
-                <h3>your graphs</h3>
-                <form id="form_graph_name" onSubmit={this.addToList}>
-                    <input placeholder="graph name" id="input_graph_name" ref={(i) => this._inputElement = i}></input>
-                    <button type="submit">Add</button>
-                </form>
-                <List list={this.state.namesList} remove={this.remove} show={this.show}/>
+            <div id="parent">
+
+                <div id="box_graph_name">
+
+                    <h3 className="box_title">your graphs</h3>
+
+                    <List list={this.state.namesList} remove={this.remove} show={this.show}/>
+
+                    <form id="form_graph_name" onSubmit={this.addToList}>
+
+                        <input placeholder="graph name" id="input_graph_name" ref={(i) => this._inputElement = i}></input>
+
+                        <button type="submit" className="add">+</button>
+
+                    </form>
+
+                </div>        
+
                 <Node graph={this.state.selected}/>
+
                 <Links graph={this.state.selected}/>
+
             </div>
         );
     }

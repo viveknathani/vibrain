@@ -15,12 +15,20 @@ class List extends React.Component
     render()
     {
         return(
-            <ul>
+            <ul className="panel_list_graph">
                 {
                     this.props.list.map(data => 
                     {
                         return(
-                            <li key={data.key}>{data.name}<button onClick={()=>{this.remove(data.name)}}>Delete</button><button onClick={()=>{this.show(data.name)}}>Show</button></li>
+                            <li key={data.key}>
+                                {data.name}
+                                <button onClick={()=>{this.show(data.name)}}>
+                                    <i class="fa fa-eye"></i>
+                                </button>
+                                <button onClick={()=>{this.remove(data.name)}}>
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                            </li>
                         )
                     })
                 }
