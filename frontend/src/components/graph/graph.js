@@ -2,6 +2,7 @@ import React from 'react';
 import List from './list';
 import Node from './nodes';
 import Links from './links';
+import Visual from './visual';
 import './style.css';
 
 class GraphsList extends React.Component
@@ -9,7 +10,7 @@ class GraphsList extends React.Component
     constructor(props)
     {
         super(props);
-        this.state = { namesList: [], selected: '' };
+        this.state = { namesList: [], selected: localStorage.getItem('selected') || []};
         this.remove = this.remove.bind(this);
         this.show = this.show.bind(this);
         this.addToList = this.addToList.bind(this);
@@ -71,7 +72,9 @@ class GraphsList extends React.Component
 
     show(name)
     {
-        this.setState({selected: name});
+        this.setState({selected: name}, ()=>{
+            localStorage.setItem('selected', this.state.selected);
+        });
     }
 
     render()
@@ -99,8 +102,11 @@ class GraphsList extends React.Component
 
                 <Links graph={this.state.selected}/>
 
+                <Visual graph={this.state.selected}/>
+
             </div>
         );
+        
     }
 };
 
