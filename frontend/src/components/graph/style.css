@@ -142,7 +142,26 @@
    background: #2bbeb9;
 }
 
-#visual
+svg 
 {
-    margin-left: 80%;
+    border: 1px solid white;
+    border-radius: 1%;
+    margin-right: -320%;
+    margin-left: 120%;
+    margin-top: -195%;
+    margin-bottom: 8%;
+    height: 560px;
+    width: 1000px;
+}
+
+#root p 
+{
+    border-radius: 1%;
+    background-color: #1c1c1c;
+    color: #11f6ee;
+    width: 310px;
+    font-weight: bold;
+    height: 50px;
+    margin-top: -1%;
+    padding: 1px;
 }
