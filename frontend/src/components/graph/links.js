@@ -78,6 +78,7 @@ class Links extends React.Component
             fetch('http://localhost:4000/api/link/'+graph, {method: 'post', headers: {'Content-Type': 'application/json'},  
             body: final}).then(this.fetchData());
         }
+        window.location.reload();
         e.preventDefault();
     }
 

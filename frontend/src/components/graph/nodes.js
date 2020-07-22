@@ -81,6 +81,7 @@ class Node extends React.Component
         }
         e.preventDefault();
         this._inputElement.value = '';
+        window.location.reload();
     }
 
     remove(data)
@@ -122,7 +123,7 @@ class Node extends React.Component
 
                         <form id="form_node_name" onSubmit={this.addNode}>
 
-                        <input placeholder="thought" id="input_thought" ref={(i) => this._inputElement = i}></input>
+                        <input placeholder="content" id="input_thought" ref={(i) => this._inputElement = i}></input>
 
                         <button type="submit" className="add">+</button>
 
