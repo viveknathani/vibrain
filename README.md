@@ -1,6 +1,6 @@
 # Vibrain
 
-Vibrain is a full-stack web application that lets you visualise networks graphs. You can create as many graphs as you want. Each graph can have any number of nodes, optionally connected by links. This web application uses the **MERN**, combined with the library **D3.js**.
+Vibrain is a full-stack web application that lets you visualise networks graphs. You can create as many graphs as you want. Each graph can have any number of nodes, optionally connected by links. This web application uses the **MERN** stack, combined with the library **D3.js**.
 
 ## The need
 
