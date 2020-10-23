@@ -1,37 +1,41 @@
-## Welcome to GitHub Pages
+# Vibrain
 
-You can use the [editor on GitHub](https://github.com/viveknathani/vibrain/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Vibrain is a full-stack web application that lets you visualise networks graphs. You can create as many graphs as you want. Each graph can have any number of nodes, optionally connected by links. This web application uses the **MERN** stack, combined with the library **D3.js**.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## The need
 
-### Markdown
+It is not necessary that every kind of note you take has a linear flow. Sometimes, your notes, thoughts, ideas can have a non-linear flow. In these cases, a network graph can help. Even if you want to stick to linearity, you can just do sequential insertion and linking of nodes in this.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## The concept
 
-```markdown
-Syntax highlighted code block
+Graph are an amazing area of study in discrete mathematics and computer science. There is enough content on the Internet that explains the best practices to store a graph in memory. Visualising them is a still a lesser known thing. 
 
-# Header 1
-## Header 2
-### Header 3
+Force-directed graph drawing algorithms are a class of algorithms for drawing graphs in an aesthetically-pleasing way. Their purpose is to position the nodes of a graph in two-dimensional or three-dimensional space so that all the edges are of more or less equal length and there are as few crossing edges as possible, by assigning forces among the set of edges and the set of nodes, based on their relative positions, and then using these forces either to simulate the motion of the edges and nodes or to minimize their energy.
 
-- Bulleted
-- List
+## The tech stack
 
-1. Numbered
-2. List
+**MongoDB**: CRUD data <br/>
+**Express**: Provides a robust way of handling requests for the backend's API. <br/>
+**React**: An amazing library for creating user interfaces using components. <br/>
+**Node.js**: Enables the usage of JavaScript in both backend and frontend. <br/>
 
-**Bold** and _Italic_ and `Code` text
+## Build 
+Clone this repository. <br/>
+Start mongodb server. <br/>
+`$ mongo`<br/>
+Go to root directory of this project. <br/>
+`$ cd backend` <br/>
+Install dependencies. <br/>
+`$ npm install` <br/>
+Start the backend server. <br/>
+`$ node index.js` <br/>
+Go back to root directory of this project. <br/>
+`$ cd frontend` <br/>
+Install dependencies. <br/>
+`$ npm install` <br/>
+Start the front server. <br/>
+`$ npm start` <br/>
+And play!
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/viveknathani/vibrain/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## LICENSE
+[MIT](https://github.com/viveknathani/vibrain/blob/master/LICENSE)
